@@ -18,8 +18,6 @@ function Framework.PlayerDataS(source)
             Cash = data.Functions.GetMoney('cash'),
             Source = data.PlayerData.source,
             Job = pJob,
-            AddMoney = data.Functions.AddMoney,
-            RemoveMoney = data.Functions.RemoveMoney,
             AddBankMoney = function(amount) data.Functions.AddMoney("bank", amount) end,
             RemoveBankMoney = function(amount) data.Functions.RemoveMoney("bank", amount) end,
             AddCash = function(amount) data.Functions.AddMoney("cash", amount) end,

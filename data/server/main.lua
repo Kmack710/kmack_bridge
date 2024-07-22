@@ -14,6 +14,8 @@ elseif config.Framework == 'qbx' then
     data.Framework = require 'frameworks.server.qbox'
 elseif config.Framework == 'esx' then
     data.Framework = require 'frameworks.server.esx'
+elseif config.Framework == 'sandbox' then
+    data.Framework = require 'frameworks.server.sandbox'
 end
 
 if config.InventoryScript == 'ox' then
@@ -24,12 +26,16 @@ elseif config.InventoryScript == 'qs' then
     data.Inventory = require 'modules.inventory.server.qs'
 elseif config.InventoryScript == 'core' then
     data.Inventory = require 'modules.inventory.server.core'
+elseif config.InventoryScript == 'sandbox' then
+    data.Inventory = require 'modules.inventory.server.sandbox'
 end
 
 if config.PhoneScript == 'yseries' then
     data.Phone = require 'modules.phone.server.yseries'
 elseif config.PhoneScript == 'lb' then
     data.Phone = require 'modules.phone.server.lb'
+elseif config.PhoneScript == 'sandbox' then
+    data.Phone = require 'modules.phone.server.sandbox'
 end
 
 if config.Notifications == 'qb' then
@@ -38,6 +44,8 @@ elseif config.Notifications == 'esx' then
     data.Noti = require 'modules.notis.server.esx'
 elseif config.Notifications == 'ox' then
     data.Noti = require 'modules.notis.server.ox'
+elseif config.Notifications == 'sandbox' then
+    data.Noti = require 'modules.notis.server.sandbox'
 else
     data.Noti = require 'modules.notis.server.custom'
 end

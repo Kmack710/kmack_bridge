@@ -11,9 +11,13 @@ files {
 }
 
 
-shared_script "@ox_lib/init.lua"
+shared_scripts {
+	-- '@es_extended/imports.lua', --- Comment out if not using ESX 
+ 	"@ox_lib/init.lua"
+}
 
 client_scripts {
+	--- '@qbx_core/modules/playerdata.lua', --- uncomment for qbox
 	'data/client/*.lua',
 }
 
