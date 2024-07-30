@@ -29,19 +29,6 @@ function Inventory.HasItem(source, item, amount)
     end
 end
 
-function Inventory.CreateUseableItem(item, cb)
-    if config.Framework == 'qbx' then
-        exports.qbx_core:CreateUseableItem(item, cb)
-    elseif config.Framework == 'qb' then
-        local QBCore = exports.['qb-core']:GetCoreObject()
-        QBCore.Functions.CreateUseableItem(item, cb)
-    elseif config.Framework == 'esx' then
-        ESX.RegisterUsableItem(item, cb)
-    else
-        print('Please add a create useable item function for your framework')
-    end
-end
-
 function Inventory.CreateStash(source, name, slots, weight)
     --- get rid of spaces and caps in the name for the id
     local id = string.lower(name)

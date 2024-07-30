@@ -24,19 +24,6 @@ function Inventory.HasItem(source, item, amount)
     return exports['qb-inventory']:HasItem(source, item, amount)
 end
 
-function Inventory.CreateUseableItem(item, cb)
-    if config.Framework == 'qbx' then
-        exports.qbx_core:CreateUseableItem(item, cb)
-    elseif config.Framework == 'qb' then
-        local QBCore = exports.['qb-core']:GetCoreObject()
-        QBCore.Functions.CreateUseableItem(item, cb)
-    elseif config.Framework == 'esx' then
-        ESX.RegisterUsableItem(item, cb)
-    else
-        print('Please add a create useable item function for your framework')
-    end
-end
-
 function Inventory.CreateStash(source, name, slots, weight)
     --- qb allows the client to make stashes..... so this doesnt get used
 

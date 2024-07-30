@@ -41,6 +41,10 @@ function Framework.GetPlayerFromPidS(pid)
     end
 end
 
+function Framework.CreateUseableItem(item, cb)
+    QBCore.Functions.CreateUseableItem(item, cb)
+end
+
 function Framework.OfflinePlayerPayment(pid, amount)
 
 

@@ -27,10 +27,6 @@ function Inventory.HasItem(source, item, amount)
     end
 end
 
-function Inventory.CreateUseableItem(item, cb)
-    exports['qs-inventory']:CreateUseableItem(item, cb)
-end
-
 function Inventory.CreateStash(source, name, slots, weight)
     exports['qs-inventory']:RegisterStash(source, name, slots, weight)
 end

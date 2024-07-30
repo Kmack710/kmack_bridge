@@ -14,6 +14,8 @@ elseif config.Framework == 'qbx' then
     data.Framework = require 'frameworks.client.qbox'
 elseif config.Framework == 'esx' then
     data.Framework = require 'frameworks.client.esx'
+elseif config.Framework == 'ox' then
+    data.Framework = require 'frameworks.client.ox'
 end
 
 if config.InventoryScript == 'ox' then
@@ -22,14 +24,18 @@ elseif config.InventoryScript == 'qb' then
     data.Inventory = require 'modules.inventory.client.qb'
 elseif config.InventoryScript == 'qs' then
     data.Inventory = require 'modules.inventory.client.qs'
-elseif config.InventoryScript == 'core' then
-    data.Inventory = require 'modules.inventory.client.core'
 end
 
 if config.PhoneScript == 'yseries' then
     data.Phone = require 'modules.phone.client.yseries'
 elseif config.PhoneScript == 'lb' then
     data.Phone = require 'modules.phone.client.lb'
+elseif config.PhoneScript == 'npwd' then
+    data.Phone = require 'modules.phone.client.npwd'
+elseif config.PhoneScript == 'qb' then
+    data.Phone = require 'modules.phone.client.qb'
+elseif config.PhoneScript == 'qs' then
+    data.Phone = require 'modules.phone.client.qs'
 end
 
 if config.Notifications == 'qb' then
@@ -50,4 +56,4 @@ end
 
 exports('GetBridge', GetBridge)
 
---local Bridge = exports['kmack_bridge']:GetBridge()
+--local Bridge = exports.kmack_bridge:GetBridge()
