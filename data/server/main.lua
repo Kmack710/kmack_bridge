@@ -1,12 +1,11 @@
---- If you dont know what your doing, dont touch anything below
---- Edit the files for your framework, inv, phone and notis in the respective folders.
-local Bridge = {
+local Config = require 'config'
+Bridge = {
     Framework = {},
     Inventory = {},
     Phone = {},
     Noti = {},
     GroupSystem = {},
-    Config = Config
+    Config = Config,
 }
 if Config.Framework == 'qb' then
     Bridge.Framework = require 'frameworks.server.qbcore'

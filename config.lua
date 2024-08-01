@@ -10,3 +10,5 @@ Config = {
     --- Group system (yseries, ps, kmack_lib(soon))
     GroupSystem = "yseries",
 }
+
+return Config
