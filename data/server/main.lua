@@ -50,9 +50,17 @@ if Config.GroupSystem == 'yseries' then
     Bridge.GroupSystem = require 'modules.groups.server.yseries'
 elseif Config.GroupSystem == 'ps' then
     Bridge.GroupSystem = require 'modules.groups.server.psPlayergroups'
+else
+    Bridge.GroupSystem = require 'modules.groups.server.custom'
 end
 
-
+if Config.Logs == 'ox' then
+    Bridge.Logs = require 'modules.logs.server.ox'
+elseif Config.Logs == 'discord' then
+    Bridge.Logs = require 'modules.logs.server.discord'
+else
+    Bridge.Logs = require 'modules.logs.server.custom'
+end
 
 local function GetBridge()
     return Bridge

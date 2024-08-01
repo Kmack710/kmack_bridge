@@ -1,1 +1,0 @@
-print('^4 [kmack_bridge] ^9 Loaded QB Phone^7')

@@ -3,7 +3,6 @@ local Config = require 'config'
 Bridge = {
     Framework = {},
     Inventory = {},
-    Phone = {},
     Noti = {},
     Config = Config
 }
@@ -24,19 +23,6 @@ elseif Config.InventoryScript == 'qb' then
 elseif Config.InventoryScript == 'qs' then
     Bridge.Inventory = require 'modules.inventory.client.qs'
 end
-
-if Config.PhoneScript == 'yseries' then
-    Bridge.Phone = require 'modules.phone.client.yseries'
-elseif Config.PhoneScript == 'lb' then
-    Bridge.Phone = require 'modules.phone.client.lb'
-elseif Config.PhoneScript == 'npwd' then
-    Bridge.Phone = require 'modules.phone.client.npwd'
-elseif Config.PhoneScript == 'qb' then
-    Bridge.Phone = require 'modules.phone.client.qb'
-elseif Config.PhoneScript == 'qs' then
-    Bridge.Phone = require 'modules.phone.client.qs'
-end
-
 if Config.Notifications == 'qb' then
     Bridge.Noti = require 'modules.notis.client.qb'
 elseif Config.Notifications == 'esx' then
