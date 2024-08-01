@@ -5,6 +5,7 @@ local Bridge = {
     Inventory = {},
     Phone = {},
     Noti = {},
+    GroupSystem = {},
     Config = Config
 }
 if Config.Framework == 'qb' then
@@ -44,6 +45,12 @@ elseif Config.Notifications == 'ox' then
     Bridge.Noti = require 'modules.notis.server.ox'
 else
     Bridge.Noti = require 'modules.notis.server.custom'
+end
+
+if Config.GroupSystem == 'yseries' then
+    Bridge.GroupSystem = require 'modules.groups.server.yseries'
+elseif Config.GroupSystem == 'ps' then
+    Bridge.GroupSystem = require 'modules.groups.server.psPlayergroups'
 end
 
 
