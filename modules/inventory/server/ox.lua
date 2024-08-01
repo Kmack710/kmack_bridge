@@ -1,5 +1,4 @@
 local Inventory = {}
-local Config = require('Config')
 print('^4 [kmack_bridge] ^5 Loaded Ox Inventory^7')
 
 function Inventory.AddItem(source, item, amount)

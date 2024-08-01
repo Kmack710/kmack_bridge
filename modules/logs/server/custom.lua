@@ -1,5 +1,6 @@
-local Logs = {}
+print('^4 [kmack_bridge]  Loaded Custom Logs^7')
 
+local Logs = {}
 
 local APIKey = 'YOUR_API'
 

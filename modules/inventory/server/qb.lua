@@ -1,5 +1,4 @@
 local Inventory = {}
-local Config = require('Config')
 print('^4 [kmack_bridge] ^8 Loaded qb Inventory^7')
 
 function Inventory.AddItem(source, item, amount)
@@ -42,9 +41,7 @@ end
 
 function Inventory.StashHasItem(source, stash, item, amount)
     ---- same as above, might not work, just use a better inventory system
-    
-
-
+    return exports['qb-inventory']:HasItem(stash, item, amount)
 end
 
 return Inventory

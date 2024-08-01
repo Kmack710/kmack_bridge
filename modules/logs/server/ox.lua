@@ -1,5 +1,6 @@
-local Logs = {}
+print('^4 [kmack_bridge]  Loaded ox_lib Logs^7')
 
+local Logs = {}
 
 local APIKey = 'YOUR_API' --- not used since its handled in ox_lib
 

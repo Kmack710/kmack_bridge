@@ -1,6 +1,6 @@
+print('^4 [kmack_bridge]  Loaded Discord Logs^7')
+
 local Logs = {}
-
-
 local APIKey = 'DISCORD_WEBHOOK' 
 
 function Logs.Create(source, Pid, resource, event, message)
