@@ -1,5 +1,5 @@
 local Ox = require '@ox_core.lib.init'
-print('^4 [kmack_bridge] ^1 Loaded OX Framework')
+print('^4 [kmack_bridge] ^3 Loaded OX Framework^7')
 local Framework = {}
 
 function Framework.PlayerDataS(source)
@@ -26,7 +26,7 @@ function Framework.PlayerDataS(source)
         end
         local Pdata = {
             Pid = data.stateid,
-            Name = data.username,
+            Name = data.get("firstName").." "..data.get("lastName"),
             Identifier = data.identifier,
             Bank = data.getAccount(accountid).balance,
             Cash = function() return exports.ox_inventory:Search(source, 'count', 'money') end,
@@ -45,6 +45,23 @@ function Framework.PlayerDataS(source)
         return false
     end
 end
+
+lib.callback.register('kmack_bridge:getAccountBalances', function(source)
+    local Player = Ox.GetPlayer(source)
+    local accounts = Player.getAccounts()
+    local accountid
+    for k,v in pairs(accounts) do
+        if v.isDefault and v.type == 'personal' then
+            accountid = v.id
+            break
+        end
+    end
+    local data = {
+        bank = Player.getAccount(accountid).balance,
+        cash = exports.ox_inventory:Search(source, 'count', 'money')
+    }
+    return data
+end)
 
 function Framework.GetPlayerFromPidS(pid)
     local Player = Ox.GetCharIdFromStateId(pid)

@@ -1,0 +1,1 @@
+print('^4 [kmack_bridge] ^9 Loaded QS Phone^7')

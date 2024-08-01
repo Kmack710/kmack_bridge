@@ -1,0 +1,1 @@
+print('^4 [kmack_bridge] ^8 Loaded QB Notifications^7')

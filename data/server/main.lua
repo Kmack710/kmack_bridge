@@ -1,51 +1,46 @@
-
 --- If you dont know what your doing, dont touch anything below
 --- Edit the files for your framework, inv, phone and notis in the respective folders.
-local config = require 'config'
-Bridge = {
+local Bridge = {
     Framework = {},
     Inventory = {},
     Phone = {},
     Noti = {},
-    Config = config
+    Config = Config
 }
-if config.Framework == 'qb' then
+if Config.Framework == 'qb' then
     Bridge.Framework = require 'frameworks.server.qbcore'
-elseif config.Framework == 'qbx' then
+elseif Config.Framework == 'qbx' then
     Bridge.Framework = require 'frameworks.server.qbox'
-elseif config.Framework == 'esx' then
+elseif Config.Framework == 'esx' then
     Bridge.Framework = require 'frameworks.server.esx'
-elseif config.Framework == 'ox' then
+elseif Config.Framework == 'ox' then
     Bridge.Framework = require 'frameworks.server.ox'
 end
-
-if config.InventoryScript == 'ox' then
+if Config.InventoryScript == 'ox' then
     Bridge.Inventory = require 'modules.inventory.server.ox'
-elseif config.InventoryScript == 'qb' then
+elseif Config.InventoryScript == 'qb' then
     Bridge.Inventory = require 'modules.inventory.server.qb'
-elseif config.InventoryScript == 'qs' then
+elseif Config.InventoryScript == 'qs' then
     Bridge.Inventory = require 'modules.inventory.server.qs'
-elseif config.InventoryScript == 'core' then
+elseif Config.InventoryScript == 'core' then
     Bridge.Inventory = require 'modules.inventory.server.core'
 end
-
-if config.PhoneScript == 'yseries' then
+if Config.PhoneScript == 'yseries' then
     Bridge.Phone = require 'modules.phone.server.yseries'
-elseif config.PhoneScript == 'lb' then
+elseif Config.PhoneScript == 'lb' then
     Bridge.Phone = require 'modules.phone.server.lb'
-elseif config.PhoneScript == 'qb' then
+elseif Config.PhoneScript == 'qb' then
     Bridge.Phone = require 'modules.phone.server.qb'
-elseif config.PhoneScript == 'qs' then
+elseif Config.PhoneScript == 'qs' then
     Bridge.Phone = require 'modules.phone.server.qs'
-elseif config.PhoneScript == 'npwd' then
+elseif Config.PhoneScript == 'npwd' then
     Bridge.Phone = require 'modules.phone.server.npwd'
 end
-
-if config.Notifications == 'qb' then
+if Config.Notifications == 'qb' then
     Bridge.Noti = require 'modules.notis.server.qb'
-elseif config.Notifications == 'esx' then
+elseif Config.Notifications == 'esx' then
     Bridge.Noti = require 'modules.notis.server.esx'
-elseif config.Notifications == 'ox' then
+elseif Config.Notifications == 'ox' then
     Bridge.Noti = require 'modules.notis.server.ox'
 else
     Bridge.Noti = require 'modules.notis.server.custom'

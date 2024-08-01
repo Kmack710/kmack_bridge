@@ -1,4 +1,4 @@
-print('^4 [kmack_bridge] ^1 Loaded Qbox Framework')
+print('^4 [kmack_bridge] ^3 Loaded Qbox Framework^7')
 local Framework = {}
 
 function Framework.PlayerDataS(source)

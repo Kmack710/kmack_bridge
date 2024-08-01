@@ -1,6 +1,6 @@
 local Inventory = {}
-local config = require('config')
-print('^4 [kmack_bridge] ^1 Loaded qb Inventory')
+local Config = require('Config')
+print('^4 [kmack_bridge] ^8 Loaded qb Inventory^7')
 
 function Inventory.AddItem(source, item, amount)
     exports['qb-inventory']:AddItem(source, item, amount)

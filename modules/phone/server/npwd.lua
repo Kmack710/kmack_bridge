@@ -1,0 +1,1 @@
+print('^4 [kmack_bridge] ^9 Loaded npwd Phone^7')

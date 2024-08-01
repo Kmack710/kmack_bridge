@@ -11,7 +11,6 @@ function Framework.PlayerDataC()
     local Pdata = {
         Pid = data.citizenid,
         Name = data.charinfo.firstname..' '..data.charinfo.lastname,
-        Identifier = data.identifier,
         Bank = data.bank,
         Cash = data.money,
         Source = data.source,

@@ -1,5 +1,5 @@
 local Inventory = {}
-print('^4 [kmack_bridge] ^1 Loaded qs Inventory')
+print('^4 [kmack_bridge] ^5 Loaded qs Inventory^7')
 
 function Inventory.AddItem(source, item, amount)
     exports['qs-inventory']:AddItem(source, item, amount)

@@ -1,5 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-print('^4 [kmack_bridge] ^1 Loaded QB-Core Framework')
+print('^4 [kmack_bridge] ^8 ... Loaded QB-Core Framework^7')
 local Framework = {}
 
 function Framework.PlayerDataS(source)
