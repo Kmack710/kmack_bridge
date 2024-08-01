@@ -3,7 +3,7 @@ fx_version "cerulean"
 use_experimental_fxv2_oal 'yes'
 game 'gta5'
 lua54 'yes'
-version '0.5.1'
+version '0.5.2'
 
 files {
 	'frameworks/**/*.lua',
