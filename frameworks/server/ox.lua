@@ -25,7 +25,7 @@ function Framework.PlayerDataS(source)
             end
         end
         local Pdata = {
-            Pid = data.stateid,
+            Pid = data.stateId,
             Name = data.get("firstName").." "..data.get("lastName"),
             Identifier = data.identifier,
             Bank = data.getAccount(accountid).balance,

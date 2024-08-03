@@ -50,6 +50,8 @@ if Config.GroupSystem == 'yseries' then
     Bridge.GroupSystem = require 'modules.groups.server.yseries'
 elseif Config.GroupSystem == 'ps' then
     Bridge.GroupSystem = require 'modules.groups.server.psPlayergroups'
+elseif Config.GroupSystem == 'slrn' then
+    Bridge.GroupSystem = require 'modules.groups.server.slrn'
 else
     Bridge.GroupSystem = require 'modules.groups.server.custom'
 end
