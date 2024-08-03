@@ -53,4 +53,10 @@ function Inventory.StashHasItem(stash, item, amount)
     end
 end
 
+RegisterNetEvent('kmack_bridge:Server:OxCreateStash', function(name, weight, slots)
+    local id = string.lower(name)
+    id = string.gsub(id, ' ', '')
+    exports.ox_inventory:RegisterStash(id, name, slots, weight)
+end)
+
 return Inventory
