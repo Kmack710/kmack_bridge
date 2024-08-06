@@ -22,7 +22,7 @@ function Framework.PlayerDataC()
     }
     local Pdata = {
 
-        Pid = data.stateid,
+        Pid = data.stateId,
         Name = data.get("firstName").." "..data.get("lastName"),
         Bank = balances.bank,
         Cash = balances.cash,
