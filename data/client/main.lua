@@ -40,3 +40,12 @@ local function GetBridge()
 end
 
 exports('GetBridge', GetBridge)
+
+
+RegisterNetEvent('kmack_bridge:playerLoaded', function()
+    --- Just used in other resources as event handler for player loaded.
+end)
+
+RegisterNetEvent('kmack_bridge:playerUnLoaded', function()
+    --- Just used in other resources as event handler for player unloaded.
+end)

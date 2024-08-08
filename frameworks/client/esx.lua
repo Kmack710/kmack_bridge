@@ -28,4 +28,12 @@ function Framework.PlayerDataC()
     return Pdata
 end
 
+AddEventHandler('esx:playerLoaded', function()
+    TriggerEvent('kmack_bridge:playerLoaded')
+end)
+
+AddEventHandler('esx:playerunLoaded', function()
+    TriggerEvent('kmack_bridge:playerUnLoaded')
+end)
+
 return Framework

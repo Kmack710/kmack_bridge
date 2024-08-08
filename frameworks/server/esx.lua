@@ -49,4 +49,5 @@ function Framework.CreateUseableItem(item, cb)
     ESX.RegisterUsableItem(item, cb)
 end
 
+
 return Framework

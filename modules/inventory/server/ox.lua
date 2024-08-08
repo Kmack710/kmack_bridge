@@ -19,8 +19,8 @@ end
 
 function Inventory.HasItem(source, item, amount)
     local items = exports.ox_inventory:Search(source, 'count', item)
-    if amount == nil then amount = 1 end
     if not amount then amount = 1 end
+    if not items then items = 0 end
     if items ~= 0 and items >= amount then
         return true
     else

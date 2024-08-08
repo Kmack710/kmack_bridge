@@ -20,4 +20,12 @@ function Framework.PlayerDataC()
     return Pdata
 end
 
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+    TriggerEvent('kmack_bridge:playerLoaded')
+end)
+
+AddEventHandler('QBCore:Client:OnPlayerUnload', function()
+    TriggerEvent('kmack_bridge:playerUnLoaded')
+end)
+
 return Framework

@@ -33,4 +33,13 @@ function Framework.PlayerDataC()
     return Pdata
 end
 
+--- kmack_bridge:playerLoaded 
+AddEventHandler('ox:playerLoaded', function()
+    TriggerEvent('kmack_bridge:playerLoaded')
+end)
+
+AddEventHandler('ox:playerLogout', function()
+    TriggerEvent('kmack_bridge:playerUnLoaded')
+end)
+
 return Framework
