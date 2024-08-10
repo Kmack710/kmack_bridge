@@ -23,6 +23,7 @@ function Framework.PlayerDataC()
     local Pdata = {
 
         Pid = data.stateId,
+        CharId = data.charId, --- some things in ox will require this.
         Name = data.get("firstName").." "..data.get("lastName"),
         Bank = balances.bank,
         Cash = balances.cash,

@@ -26,6 +26,7 @@ function Framework.PlayerDataS(source)
         end
         local Pdata = {
             Pid = data.stateId,
+            CharId = data.charId, --- some things in ox will require this.
             Name = data.get("firstName").." "..data.get("lastName"),
             Identifier = data.identifier,
             Bank = data.getAccount(accountid).balance,
@@ -64,9 +65,10 @@ lib.callback.register('kmack_bridge:getAccountBalances', function(source)
 end)
 
 function Framework.GetPlayerFromPidS(pid)
-    local Player = Ox.GetCharIdFromStateId(pid)
-    if Player then
-        return Player
+    local charId = Ox.GetCharIdFromStateId(pid)
+    local Player = Ox.GetPlayerFromFilter(charId)
+    if Player.source then
+        return Framework.PlayerDataS(Player.source)
     else
         return false
     end
