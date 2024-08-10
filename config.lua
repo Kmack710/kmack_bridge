@@ -7,7 +7,7 @@ Config = {
     Framework = "ox",
     --- Notifications (qb, esx, ox or custom - Check the notifications folder for more info)
     Notifications = "ox",
-    --- Group system (yseries, ps, slrn, custom, kmack_lib(soon))
+    --- Group system (yseries, ps, slrn, custom, kmack_utils)
     GroupSystem = "slrn",
     --- Logs (ox, discord, custom)
     Logs = "ox",
