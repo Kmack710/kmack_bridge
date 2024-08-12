@@ -5,17 +5,31 @@ local Framework = {}
 function Framework.PlayerDataS(source)
     local data = Ox.GetPlayer(source)
     if data ~= nil then
-        local groups = data.getGroups()
-        local groupName, grade = data.getGroup(groups)
-        local pJob = {
-            name = groupName,
-            label = GlobalState['group.'..groupName].label,
-            Grade = {
-                name = string.lower(GlobalState['group.'..groupName].grades[grade]),
-                label = GlobalState['group.'..groupName].grades[grade],
-                level = grade
+        local groupName = data.get('activeGroup')
+        local pJob
+        if groupName == nil then
+            pJob = {
+                name = 'citizen',
+                label = 'Citizen',
+                Grade = {
+                    name = 'none',
+                    label = 'None',
+                    level = 0
+                }
             }
-        }
+        else 
+            local grade = data.getGroup(groupName)
+            print(groupName, grade)
+             pJob = {
+                name = groupName,
+                label = GlobalState['group.'..groupName].label,
+                Grade = {
+                    name = string.lower(GlobalState['group.'..groupName].grades[grade]),
+                    label = GlobalState['group.'..groupName].grades[grade],
+                    level = grade
+                }
+            }
+        end
         local accounts = data.getAccounts()
         local accountid
         for k,v in pairs(accounts) do
