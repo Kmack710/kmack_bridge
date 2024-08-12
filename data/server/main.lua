@@ -53,7 +53,7 @@ elseif Config.GroupSystem == 'ps' then
 elseif Config.GroupSystem == 'slrn' then
     Bridge.GroupSystem = require 'modules.groups.server.slrn'
 elseif Config.GroupSystem == 'kmack_utils' then
-    Bridge.GroupSystem = require 'modules.groups.server.kmack_utils'
+    Bridge.GroupSystem = require 'modules.groups.server.kmackutils'
 else
     Bridge.GroupSystem = require 'modules.groups.server.custom'
 end
