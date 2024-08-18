@@ -38,13 +38,14 @@ function Framework.PlayerDataS(source)
                 break
             end
         end
+        local money = exports.ox_inventory:GetItemCount(source, 'money')
         local Pdata = {
             Pid = data.stateId,
             CharId = data.charId, --- some things in ox will require this.
             Name = data.get("firstName").." "..data.get("lastName"),
             Identifier = data.identifier,
             Bank = data.getAccount(accountid).balance,
-            Cash = function() return exports.ox_inventory:Search(source, 'count', 'money') end,
+            Cash = money,
             Source = data.source,
             Job = pJob,
             AddBankMoney = function(amount) Ox.DepositMoney(source, accountid, amount) end,

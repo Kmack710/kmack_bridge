@@ -6,7 +6,7 @@ function Inventory.AddItem(source, item, amount)
 end
 
 function Inventory.AddItemWithMetaData(source, item, amount, metadata)
-    exports.ox_inventory:AddItemWithMetaData(source, item, amount, metadata)
+    exports.ox_inventory:AddItem(source, item, amount, metadata)
 end
 
 function Inventory.RemoveItem(source, item, amount)
