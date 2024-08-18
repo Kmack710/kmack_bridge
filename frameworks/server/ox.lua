@@ -19,7 +19,6 @@ function Framework.PlayerDataS(source)
             }
         else 
             local grade = data.getGroup(groupName)
-            print(groupName, grade)
              pJob = {
                 name = groupName,
                 label = GlobalState['group.'..groupName].label,

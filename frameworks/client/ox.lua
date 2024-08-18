@@ -2,7 +2,12 @@ local Ox = require '@ox_core.lib.init'
 print('^4 [kmack_bridge] ^3 Loaded OX Framework^7')
 local Framework = {}
 
+local plLoaded = false
+
 function Framework.PlayerDataC()
+    while not plLoaded do
+        Wait(250)
+    end
     local data = Ox.GetPlayer()
     local groups = data.getGroups()
     local groupName = data.get('activeGroup')
@@ -51,10 +56,12 @@ end
 --- kmack_bridge:playerLoaded 
 AddEventHandler('ox:playerLoaded', function()
     TriggerEvent('kmack_bridge:playerLoaded')
+    plLoaded = true
 end)
 
 AddEventHandler('ox:playerLogout', function()
     TriggerEvent('kmack_bridge:playerUnLoaded')
+    plLoaded = false
 end)
 
 return Framework
