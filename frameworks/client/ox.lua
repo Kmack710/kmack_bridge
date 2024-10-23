@@ -10,7 +10,7 @@ function Framework.PlayerDataC()
     end
     local data = Ox.GetPlayer()
     local groups = data.getGroups()
-    local groupName = data.get('activeGroup')
+    local groupName, grade = data.getGroupByType('job')
     local pJob
     if groupName == nil then
         pJob = {
@@ -23,7 +23,7 @@ function Framework.PlayerDataC()
             }
         }
     else
-        local grade = data.getGroup(groupName)
+        --local grade = data.getGroup(groupName)
          pJob = {
             name = groupName,
             label = GlobalState['group.'..groupName].label,

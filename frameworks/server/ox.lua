@@ -5,7 +5,7 @@ local Framework = {}
 function Framework.PlayerDataS(source)
     local data = Ox.GetPlayer(source)
     if data ~= nil then
-        local groupName = data.get('activeGroup')
+        local groupName, grade = data.getGroupByType('job')
         local pJob
         if groupName == nil then
             pJob = {
@@ -18,7 +18,7 @@ function Framework.PlayerDataS(source)
                 }
             }
         else 
-            local grade = data.getGroup(groupName)
+            --local grade = data.getGroup(groupName)
              pJob = {
                 name = groupName,
                 label = GlobalState['group.'..groupName].label,
@@ -29,21 +29,13 @@ function Framework.PlayerDataS(source)
                 }
             }
         end
-        local accounts = data.getAccounts()
-        local accountid
-        for k,v in pairs(accounts) do
-            if v.isDefault and v.type == 'personal' then
-                accountid = v.id
-                break
-            end
-        end
         local money = exports.ox_inventory:GetItemCount(source, 'money')
         local Pdata = {
             Pid = data.stateId,
             CharId = data.charId, --- some things in ox will require this.
             Name = data.get("firstName").." "..data.get("lastName"),
             Identifier = data.identifier,
-            Bank = data.getAccount(accountid).balance,
+            Bank = data.getAccount().balance,
             Cash = money,
             Source = data.source,
             Job = pJob,
@@ -63,16 +55,8 @@ end
 
 lib.callback.register('kmack_bridge:getAccountBalances', function(source)
     local Player = Ox.GetPlayer(source)
-    local accounts = Player.getAccounts()
-    local accountid
-    for k,v in pairs(accounts) do
-        if v.isDefault and v.type == 'personal' then
-            accountid = v.id
-            break
-        end
-    end
     local data = {
-        bank = Player.getAccount(accountid).balance,
+        bank = Player.getAccount().balance,
         cash = exports.ox_inventory:Search(source, 'count', 'money')
     }
     return data
