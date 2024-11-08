@@ -55,4 +55,27 @@ function Inventory.StashHasItem(source, stashid, item, amount)
     end
 end
 
+function Inventory.GetItems(source)
+    local items = exports['qs-inventory']:GetInventory(source)
+    local itemData = {}
+    for k, v in pairs(items) do
+        table.insert(itemData, {name = v.name, amount = v.amount, metadata = v.metadata or nil})
+    end
+    return itemData
+end
+
+function Inventory.WipeInventory(source, itemsToExclude)
+    local items = Inventory.GetItems(source)
+    for k, v in pairs(items) do
+        if not itemsToExclude then
+            exports['qs-inventory']:RemoveItem(source, v.name, v.amount)
+        else
+            if not itemsToExclude[v.name] then
+                exports['qs-inventory']:RemoveItem(source, v.name, v.amount)
+            end
+        end
+    end
+
+end
+
 return Inventory

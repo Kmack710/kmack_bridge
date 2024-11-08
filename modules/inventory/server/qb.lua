@@ -28,6 +28,22 @@ function Inventory.CreateStash(source, name, slots, weight)
 
 end
 
+function Inventory.GetItems(source)
+    local QBCore = exports['qb-core']:GetCoreObject()
+    local citizenid = QBCore.Functions.GetPlayer(source).PlayerData.citizenid --- cause for some reason qb-inventory couldnt get citizenid from source on their side...
+    local items = exports['qb-inventory']:LoadInventory(source, citizenid)
+    local itemData = {}
+    for k, v in pairs(items) do
+        table.insert(itemData, {name = v.name, amount = v.amount, metadata = v.metadata or nil})
+    end
+    return itemData
+end
+
+function Inventory.WipeInventory(source, itemsToExclude)
+    local items = itemsToExclude or false
+    exports['qb-inventory']:ClearInventory(source, items)
+end
+
 function Inventory.AddItemToStash(source, stash, item, amount)
     --- Dont know if this works, just get a better inventory system tbh
     exports['qb-inventory']:AddItem(stash, item, amount, false)

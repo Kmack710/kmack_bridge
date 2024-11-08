@@ -17,6 +17,20 @@ function Inventory.RemoveItemWithMetaData(source, item, amount, metadata)
     exports.ox_inventory:RemoveItem(source, item, amount, metadata)
 end
 
+function Inventory.GetItems(inventory)
+    local items = exports.ox_inventory:GetInventoryItems(inventory)
+    local itemData = {}
+    for k, v in pairs(items) do
+        table.insert(itemData, {name = v.name, amount = v.amount, metadata = v.metadata})
+    end
+    return itemData
+end
+
+function Inventory.WipeInventory(inventory, itemsToExclude)
+    local items = itemsToExclude or false
+    exports.ox_inventory:ClearInventory(inventory, items)
+end
+
 function Inventory.HasItem(source, item, amount)
     local items = exports.ox_inventory:Search(source, 'count', item)
     if not amount then amount = 1 end
